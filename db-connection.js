@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
-const mongoURI = "mongodb://localhost:27017/MyNoteBook?readPreference=primary&directConnection=true&ssl=false";
+const mongoURI = "mongodb://127.0.0.1:27017/MyNoteBook";
 
 const connectToMongo = ()=>{
-    mongoose.connect( mongoURI, ()=>{
-        console.log("Connected to Mongodb Succesfully !!");
+    mongoose.connect( mongoURI )
+    .then(()=>{
+        console.log("DB Connected..................................")
     });
 };
 

@@ -1,15 +1,12 @@
 const express = require("express");
 const connectToMongo = require("./db-connection");
+const app = express();
 
 connectToMongo();
 
-const app = express();
+app.use( express.json() );
 
 const PORT = 4000;
-
-app.get("/", ( request, response )=>{
-    response.send("Hello World !!!");
-});
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
